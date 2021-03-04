@@ -1,0 +1,38 @@
+package com.example.mytrainingapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var editLenght: EditText
+    private lateinit var editHeight: EditText
+    private lateinit var btnCalculate: Button
+    private lateinit var viewResult: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        editLenght = findViewById(R.id.edit_length)
+        editHeight = findViewById(R.id.edit_height)
+        btnCalculate = findViewById(R.id.btn_calculate)
+        viewResult = findViewById(R.id.view_result)
+
+        btnCalculate.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        if (v?.id == R.id.btn_calculate) {
+            val inputLength = editLenght.text.toString().trim()
+            val inputHeight = editHeight.text.toString().trim()
+
+            val result = inputLength.toDouble() * inputHeight.toDouble()
+            viewResult.text = result.toString()
+        }
+    }
+}
