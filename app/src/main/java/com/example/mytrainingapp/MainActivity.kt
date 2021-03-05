@@ -31,8 +31,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val inputLength = editLenght.text.toString().trim()
             val inputHeight = editHeight.text.toString().trim()
 
-            val result = inputLength.toDouble() * inputHeight.toDouble()
-            viewResult.text = result.toString()
+            var isEmptyFields = false
+
+            when {
+                inputLength.isEmpty() -> {
+                    isEmptyFields = true
+                    editLenght.error = "Field Cannot be Empty"
+                }
+
+                inputHeight.isEmpty() -> {
+                    isEmptyFields = true
+                    editHeight.error = "Field Cannot Be Empty"
+                }
+
+            }
+
+            if (!isEmptyFields) {
+                val result = inputLength.toDouble() * inputHeight.toDouble()
+                viewResult.text = result.toString()
+            }
+
+
+
         }
     }
 }
