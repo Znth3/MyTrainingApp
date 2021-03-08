@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveToCountActivity: Button = findViewById(R.id.btn_move_count)
         btnMoveToCountActivity.setOnClickListener(this)
+
+        val btnMoveToCountActivityWithData : Button = findViewById(R.id.btn_move_with_data)
+        btnMoveToCountActivityWithData.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -23,6 +26,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_move_count -> {
                 val moveIntent = Intent(this@MainActivity, CountActivity::class.java)
                 startActivity(moveIntent)
+            }
+
+            R.id.btn_move_with_data -> {
+                val moveWithDataIntent = Intent(this@MainActivity, MoveWithDataActivity::class.java)
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Raya")
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5)
+                startActivity(moveWithDataIntent)
             }
         }
     }
