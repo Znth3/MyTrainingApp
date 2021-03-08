@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveToCountActivityWithData : Button = findViewById(R.id.btn_move_with_data)
         btnMoveToCountActivityWithData.setOnClickListener(this)
+
+        val btnImplicitCalculator: Button = findViewById(R.id.btn_implicit_calculator)
+        btnImplicitCalculator.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -33,6 +36,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Raya")
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5)
                 startActivity(moveWithDataIntent)
+            }
+
+            R.id.btn_implicit_calculator -> {
+                val openCalculator = Intent(Intent.CATEGORY_APP_CALCULATOR)
+                startActivity(openCalculator)
             }
         }
     }
