@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnImplicitCalculator: Button = findViewById(R.id.btn_implicit_calculator)
         btnImplicitCalculator.setOnClickListener(this)
+
+        val btnMoveViewGroup: Button = findViewById(R.id.btn_move_viewGroup)
+        btnMoveViewGroup.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -41,6 +44,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_implicit_calculator -> {
                 val openCalculator = Intent(Intent.CATEGORY_APP_CALCULATOR)
                 startActivity(openCalculator)
+            }
+
+            R.id.btn_move_viewGroup -> {
+                val moveViewGroupIntent = Intent(this@MainActivity, ViewAndViewsActivity::class.java)
+                startActivity(moveViewGroupIntent)
             }
         }
     }
