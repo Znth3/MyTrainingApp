@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_move_recycler -> {
-                val moveToRecyclerViewIntent = Intent(this@MainActivity, RecyclerView::class.java)
+                val moveToRecyclerViewIntent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
                 startActivity(moveToRecyclerViewIntent)
             }
 
