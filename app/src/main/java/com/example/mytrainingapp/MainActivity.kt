@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveViewGroup: Button = findViewById(R.id.btn_move_viewGroup)
         btnMoveViewGroup.setOnClickListener(this)
+
+        val btnMoveToRecyclerView: Button = findViewById(R.id.btn_move_recycler)
+        btnMoveToRecyclerView.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -50,6 +53,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val moveViewGroupIntent = Intent(this@MainActivity, ViewAndViewsActivity::class.java)
                 startActivity(moveViewGroupIntent)
             }
+
+            R.id.btn_move_recycler -> {
+                val moveToRecyclerViewIntent = Intent(this@MainActivity, RecyclerView::class.java)
+                startActivity(moveToRecyclerViewIntent)
+            }
+
         }
     }
 }
