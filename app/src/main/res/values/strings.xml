@@ -29,4 +29,6 @@
     <string name="dummy_photos">6 photos</string>
     <string name="heroes_name">Nama Pahalawan</string>
     <string name="detail">Detail</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
 </resources>

@@ -11,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerViewActivity<T> : AppCompatActivity() {
     private lateinit var rvHeroes: RecyclerView
     private var list: ArrayList<Hero> = arrayListOf()
+    private var title: String = "List Mode"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
+        setActionBar(title)
 
         rvHeroes = findViewById(R.id.rv_heroes)
         rvHeroes.setHasFixedSize(true)
@@ -35,6 +37,12 @@ class RecyclerViewActivity<T> : AppCompatActivity() {
         rvHeroes.adapter = gridHeroAdapter
     }
 
+    private fun showRecyclerCardView() {
+        rvHeroes.layoutManager = LinearLayoutManager(this)
+        val cardViewHeroAdapter = CardViewHeroAdapter(list)
+        rvHeroes.adapter = cardViewHeroAdapter
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.recycler_menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -45,19 +53,27 @@ class RecyclerViewActivity<T> : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun setActionBar(title: String){
+        supportActionBar?.title = title
+    }
+
     private fun setMode(itemId: Int) {
         when (itemId) {
             R.id.action_list -> {
+                title = "List Mode"
                 showRecyclerList()
             }
 
             R.id.action_grid -> {
+                title = "Grid Mode"
                 showRecyclerGrid()
             }
 
             R.id.action_cardView -> {
-
+                title = "Card View Mode"
+                showRecyclerCardView()
             }
         }
+        setActionBar(title)
     }
 }
