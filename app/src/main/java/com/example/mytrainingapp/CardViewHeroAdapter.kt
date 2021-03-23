@@ -46,4 +46,5 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.
     override fun getItemCount(): Int {
         return listHero.size
     }
+
 }
